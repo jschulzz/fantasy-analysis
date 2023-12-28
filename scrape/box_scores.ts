@@ -8,15 +8,17 @@ export const getBoxScores = async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
-  const url = `https://fantasy.espn.com/football/boxscore?leagueId=${leagueId}&matchupPeriodId=1&scoringPeriodId=1&seasonId=2022&teamId=4`;
+  const url = `https://fantasy.espn.com/football/boxscore?leagueId=${leagueId}&matchupPeriodId=1&scoringPeriodId=1&seasonId=2023&teamId=4`;
+  console.log("Waiting")
   await page.goto(url, {
     waitUntil: "networkidle0",
     timeout: 0,
   });
+  console.log("Logging in")
   await login(page);
   const matches: any[] = [];
-  for (let week = 17; week >= 1; week--) {
-    const url = `https://fantasy.espn.com/football/boxscore?leagueId=${leagueId}&matchupPeriodId=${week}&scoringPeriodId=${week}&seasonId=2022&teamId=4`;
+  for (let week = 14; week >= 1; week--) {
+    const url = `https://fantasy.espn.com/football/boxscore?leagueId=${leagueId}&matchupPeriodId=${week}&scoringPeriodId=${week}&seasonId=2023&teamId=4`;
     await page.goto(url, {
       timeout: 0,
     });
@@ -24,7 +26,7 @@ export const getBoxScores = async () => {
       "div.Thumbnails__Inner .Thumbnails__Item__Container",
       { timeout: 0 }
     );
-    for (let matchup = 0; matchup < 6; matchup++) {
+    for (let matchup = 0; matchup < 7; matchup++) {
       const children = await page.$$(
         "div.Thumbnails__Inner .Thumbnails__Item__Container"
       );

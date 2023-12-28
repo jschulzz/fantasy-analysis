@@ -329,7 +329,7 @@ export const deepestLineup = (position = "QB") => {
       }`
     );
   });
-  //   console.log(averages);
+  // console.log(averages);
 };
 
 export const findBestLineup = () => {
@@ -357,22 +357,22 @@ export const findWorstDrop = () => {
   const dateToWeek = (date: Date) => {
     const weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     const dates = [
-      new Date("9 / 8 / 22"),
-      new Date("9 / 15"),
-      new Date("9 / 22 / 22"),
-      new Date("9 / 29"),
-      new Date("10 / 6 / 22"),
-      new Date("10 / 13"),
-      new Date("10 / 20 / 22"),
-      new Date("10 / 27"),
-      new Date("11 / 3 / 22"),
-      new Date("11 / 10"),
-      new Date("11 / 17 / 22"),
-      new Date("11 / 24"),
-      new Date("12 / 1 / 22"),
-      new Date("12 / 8"),
-      new Date("12 / 15 / 22"),
-      new Date("12 / 22"),
+      new Date("9 / 7 / 23"),
+      new Date("9 / 14 / 23"),
+      new Date("9 / 21 / 23"),
+      new Date("9 / 29 / 23"),
+      new Date("10 / 5 / 23"),
+      new Date("10 / 12 / 23"),
+      new Date("10 / 19 / 23"),
+      new Date("10 / 26 / 23"),
+      new Date("11 / 2 / 23"),
+      new Date("11 / 9 / 23"),
+      new Date("11 / 16 / 23"),
+      new Date("11 / 23 / 23"),
+      new Date("11 / 30 / 23"),
+      new Date("12 / 7 / 23"),
+      new Date("12 / 14 / 23"),
+      new Date("12 / 21 / 23"),
     ];
     for (let i = 0; i < dates.length; i++) {
       if (dates[i] > date) {
@@ -391,7 +391,7 @@ export const findWorstDrop = () => {
     .filter((x) => x.action === "added")
     .forEach((transaction) => {
       const { playerName, date, teamName } = transaction;
-      const dropWeek = dateToWeek(new Date(date + " 2022"));
+      const dropWeek = dateToWeek(new Date(date + " 2023"));
       const ptsBefore = avg(
         playerStats[playerName]
           .filter((p) => p.week < dropWeek)

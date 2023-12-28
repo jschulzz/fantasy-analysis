@@ -7,7 +7,7 @@ export const getPlayerData = async () => {
   const playerMap = new Map();
   for (let i = 1; i <= 16; i++) {
     const data = await axios.get(
-      `https://fantasy.espn.com/apis/v3/games/ffl/seasons/2022/segments/0/leagues/${leagueId}?scoringPeriodId=${i}&view=kona_player_info`,
+      `https://fantasy.espn.com/apis/v3/games/ffl/seasons/2023/segments/0/leagues/${leagueId}?scoringPeriodId=${i}&view=kona_player_info`,
       {
         headers: {
           accept: "application/json",

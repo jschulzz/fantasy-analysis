@@ -5,7 +5,7 @@ import { login } from "./utils";
 import { leagueId } from "../secrets";
 
 const loadPage = async (date: string, pageNum: number, page: Page) => {
-  const url = `https://fantasy.espn.com/football/recentactivity?leagueId=${leagueId}&endDate=${date}&page=${pageNum}&seasonId=2022&startDate=20220806&teamId=-1&transactionType=-2&activityType=2`;
+  const url = `https://fantasy.espn.com/football/recentactivity?leagueId=${leagueId}&endDate=${date}&page=${pageNum}&seasonId=2023&startDate=20230806&teamId=-1&transactionType=-2&activityType=2`;
   await page.goto(url, {
     timeout: 0,
   });
@@ -17,7 +17,7 @@ export const getTransactions = async () => {
   const page = await browser.newPage();
   const transactions: any[] = [];
 
-  let url = `https://fantasy.espn.com/football/boxscore?leagueId=${leagueId}&matchupPeriodId=1&scoringPeriodId=1&seasonId=2022&teamId=4`;
+  let url = `https://fantasy.espn.com/football/boxscore?leagueId=${leagueId}&matchupPeriodId=1&scoringPeriodId=1&seasonId=2023&teamId=4`;
   await page.goto(url, {
     waitUntil: "networkidle0",
     timeout: 0,
